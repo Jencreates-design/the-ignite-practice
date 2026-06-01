@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+
+    {% include header.html %}
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>{{ page.hero_title }}</h1>
+            <p>{{ page.hero_text }}</p>
+            {% if page.hero_button_text %}
+            <a href="{{ page.hero_button_link }}" class="btn-primary">
+                {{ page.hero_button_text }}
+            </a>
+            {% endif %}
+        </div>
+    </section>
+
+    <main class="home-content">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+</body>
+
+</html>
