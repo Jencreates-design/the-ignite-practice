@@ -403,3 +403,13 @@ footer {
     text-align: center;
     width: fit-content;
 }
+
+.section .button-primary {
+  display: inline-block;
+  margin: 2rem auto 0;
+  text-align: center;
+}
+
+.section-inner {
+  text-align: center;
+}
