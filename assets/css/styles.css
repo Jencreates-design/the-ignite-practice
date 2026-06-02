@@ -24,6 +24,16 @@
     box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+}
+
 body {
     background: var(--cream);
     color: var(--charcoal);
@@ -31,44 +41,47 @@ body {
     line-height: 1.7;
 }
 
-/* ---------- CONTAINER ---------- */
-.container {
+/* ---------- GLOBAL CONTAINERS ---------- */
+.container,
+.section-inner {
     width: 90%;
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
+    text-align: center;
 }
 
 /* ================================
-   HEADER / NAV
+   HEADER / NAVIGATION
 ================================ */
 header {
     background: var(--cream);
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px solid rgba(46, 58, 50, 0.1);
 }
 
 .nav-container {
     display: flex;
     align-items: center;
-    width: 90%;
+    justify-content: space-between;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.logo {
-    margin-right: auto;
+.logo-desktop {
+    width: 380px;
+    height: auto;
 }
 
-.logo-desktop {
-    width: 400px;
-    height: auto;
-    max-width: 100%;
+.logo-mobile {
+    display: none;
+    height: 70px;
+    width: auto;
 }
 
 nav ul {
     display: flex;
-    gap: 30px;
+    gap: 28px;
     list-style: none;
 }
 
@@ -84,12 +97,6 @@ nav a:hover {
 }
 
 /* ---------- RESPONSIVE NAV ---------- */
-.logo-mobile {
-    display: none;
-    height: 70px;
-    width: auto;
-}
-
 @media (max-width: 700px) {
     .nav-container {
         flex-direction: column;
@@ -111,28 +118,42 @@ nav a:hover {
 }
 
 /* ================================
-   HOMEPAGE SECTIONS
+   GLOBAL SECTIONS + SPACING
 ================================ */
+.section {
+    padding: 40px 20px;
+}
 
-/* HERO */
+.hero+.section {
+    padding-top: 10px;
+}
+
+.about-hero.section {
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+/* ================================
+   HERO SECTION
+================================ */
 .hero {
-    background: var(--cream);
-    padding: 80px 20px;
-    text-align: center;
+    padding: 40px 20px;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 55vh;
+    text-align: center;
 }
 
-.hero-inner {
+.hero-content {
     max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero h1 {
     font-family: var(--heading-font);
     font-size: 3rem;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .hero-subtitle {
@@ -141,7 +162,9 @@ nav a:hover {
     margin-bottom: 25px;
 }
 
-/* BUTTONS */
+/* ================================
+   BUTTONS
+================================ */
 .button-primary {
     background: var(--sage);
     color: white;
@@ -150,222 +173,46 @@ nav a:hover {
     text-decoration: none;
     font-weight: 600;
     transition: 0.2s ease;
+    display: inline-block;
+    margin-top: 25px;
 }
 
 .button-primary:hover {
     background: var(--gold);
 }
 
-/* SECTIONS */
-.section {
-    padding: 70px 20px;
-}
-
-.section-inner {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.beige {
-    background: var(--beige);
-}
-
-.cream {
-    background: var(--cream);
-}
-
-/* HEADINGS */
-.section h2 {
-    font-family: var(--heading-font);
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-/* LISTS */
-.bullet-list {
-    list-style: disc;
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.issues-list {
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-.empathy-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 20px;
-}
-
-.empathy-list li {
-    margin-bottom: 10px;
-}
-
-.empathy-bottom {
-    margin-top: 20px;
-    font-weight: 600;
-}
-
-/* STEPS */
-.steps-subtitle {
-    margin-bottom: 30px;
-    font-size: 1.2rem;
-    color: rgba(46, 58, 50, 0.85);
-}
-
-.steps-grid {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    margin-bottom: 40px;
-}
-
-.step h3 {
-    font-family: var(--heading-font);
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-/* FOOTER */
-footer {
-    background: var(--charcoal);
-    color: var(--cream);
-    text-align: center;
-    padding: 25px 0;
-    margin-top: 60px;
-    font-size: 0.9rem;
-}
-
 /* ================================
-   HOMEPAGE — TYPOGRAPHY ENHANCEMENTS
+   TYPOGRAPHY
 ================================ */
-
-/* Paragraph styling for all homepage sections */
 .section-inner p {
     max-width: 750px;
-    margin: 0 auto 22px auto;
-    text-align: center;
+    margin: 0 auto 16px auto;
     font-size: 1.15rem;
     line-height: 1.8;
     color: var(--charcoal);
 }
 
-/* Bullet lists (Approach section) */
-.bullet-list {
-    max-width: 750px;
-    margin: 0 auto 25px auto;
-    padding-left: 0;
-    list-style: none;
-    text-align: center;
-}
-
-.bullet-list li {
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 18px;
-}
-
-.bullet-list li::before {
-    content: "•";
-    color: var(--sage);
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-/* Issues list */
-.issues-list {
-    max-width: 750px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.15rem;
-    line-height: 1.8;
-}
-
-/* Empathy section list */
+/* ================================
+   LISTS
+================================ */
+.bullet-list,
+.issues-list,
 .empathy-list {
     max-width: 750px;
-    margin: 0 auto 25px auto;
+    margin: 10px auto 20px auto;
     padding-left: 0;
     list-style: none;
-    text-align: center;
-}
-
-.empathy-list li {
-    margin-bottom: 12px;
-    font-size: 1.15rem;
-    line-height: 1.8;
-}
-
-/* Empathy bottom line */
-.empathy-bottom {
-    max-width: 750px;
-    margin: 20px auto;
-    text-align: center;
-    font-weight: 600;
-    font-size: 1.2rem;
-}
-
-.bullet-list {
-    max-width: 750px;
-    margin: 0 auto 25px auto;
-    padding-left: 0;
-    list-style: none;
-    columns: 2;
-    column-gap: 40px;
     text-align: left;
 }
 
-.bullet-list li {
-    break-inside: avoid;
-    margin-bottom: 10px;
-    padding-left: 18px;
-    position: relative;
-}
-
-.bullet-list li::before {
-    content: "•";
-    color: var(--sage);
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-@media (max-width: 700px) {
-    .bullet-list {
-        columns: 1;
-    }
-}
-
-/* APPROACH SECTION IMPROVEMENTS */
-.approach.section {
-    padding: 90px 20px;
-}
-
-.approach .section-inner {
-    max-width: 850px;
-}
-
-.approach p {
-    margin-bottom: 25px;
-    font-size: 1.18rem;
-    line-height: 1.85;
-}
-
 .bullet-list {
-    max-width: 750px;
-    margin: 0 auto 35px auto;
-    padding-left: 0;
-    list-style: none;
     columns: 2;
     column-gap: 40px;
-    text-align: left;
 }
 
-.bullet-list li {
-    break-inside: avoid;
+.bullet-list li,
+.empathy-list li,
+.issues-list li {
     margin-bottom: 12px;
     padding-left: 18px;
     position: relative;
@@ -373,7 +220,9 @@ footer {
     line-height: 1.7;
 }
 
-.bullet-list li::before {
+.bullet-list li::before,
+.empathy-list li::before,
+.issues-list li::before {
     content: "•";
     color: var(--sage);
     position: absolute;
@@ -387,42 +236,34 @@ footer {
     }
 }
 
-.issues-list {
-    max-width: 750px;
-    margin: 0 auto 30px auto;
-    padding-left: 20px;
-    list-style: disc;
-    text-align: left;
-    font-size: 1.15rem;
-    line-height: 1.8;
-}
-
-.empathy .button-primary {
-    display: block;
-    margin: 30px auto 0 auto;
-    text-align: center;
-    width: fit-content;
-}
-
-.section .button-primary {
-  display: inline-block;
-  margin: 2rem auto 0;
-  text-align: center;
-}
-
-.section-inner {
-  text-align: center;
-}
-
+/* ================================
+   ABOUT PAGE
+================================ */
 .about-photo-wrapper {
     text-align: center;
-    margin: 40px 0;
+    margin: 30px 0;
 }
 
 .about-photo {
-    max-width: 300px;   /* adjust this number to the size you want */
+    max-width: 300px;
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
 
+.cta-bottom {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
