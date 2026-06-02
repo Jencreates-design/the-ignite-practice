@@ -413,3 +413,16 @@ footer {
 .section-inner {
   text-align: center;
 }
+
+.about-photo-wrapper {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.about-photo {
+    max-width: 300px;   /* adjust this number to the size you want */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
