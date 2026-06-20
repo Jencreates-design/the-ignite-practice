@@ -181,7 +181,7 @@ nav a:hover {
 ================================ */
 .hero {
     position: relative;
-    background-image: url('/assets/images/hero-photo.jpeg');
+    background-image: url('assets/images/hero-photo.jpeg');
     background-size: cover;
     background-position: center;
     min-height: 90vh;
