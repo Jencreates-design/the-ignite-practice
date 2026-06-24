@@ -4,6 +4,7 @@ title: Contact
 class: inner-page
 ---
 
+<!-- HERO -->
 <section class="contact-hero section">
     <div class="section-inner">
         <h1>Contact</h1>
@@ -11,23 +12,66 @@ class: inner-page
     </div>
 </section>
 
-<section class="contact-content section">
-    <div class="section-inner">
+<!-- TWO-COLUMN CONTACT SECTION -->
+<section class="contact-content section cream">
+    <div class="section-inner contact-grid">
 
-        <p class="contact-intro">
-            Whether you're booking your first session, asking a question, or just wanting to explore whether we're the
-            right fit — you're welcome to get in touch.
-        </p>
+        <!-- LEFT: FORM -->
+        <div class="contact-form-area">
 
-        <div class="contact-buttons">
-            <a href="tel:0467185112" class="button-primary contact-button">Call</a>
-            <a href="mailto:admin@theignitepractice.com.au" class="button-primary contact-button">Email</a>
+            <p class="contact-intro">
+                Whether you're booking your first session, asking a question, or just wanting to explore whether we're
+                the right fit — you're welcome to get in touch.
+            </p>
+
+            <h2>Send me an email</h2>
+
+            <form action="https://formspree.io/f/xpqelydl" method="POST" class="contact-form">
+
+                <label>
+                    Name
+                    <input type="text" name="name" required>
+                </label>
+
+                <label>
+                    Email
+                    <input type="email" name="email" required>
+                </label>
+
+                <label>
+                    Phone
+                    <input type="tel" name="phone">
+                </label>
+
+                <label>
+                    Message
+                    <textarea name="message" rows="6" required></textarea>
+                </label>
+
+                <button type="submit" class="button-primary">Send</button>
+            </form>
+
+            <p class="contact-note">I aim to respond within 24 hours on weekdays.</p>
         </div>
 
+        <!-- RIGHT: CONTACT DETAILS -->
+        <div class="contact-details-area">
+            <h3>Contact Details</h3>
 
-        <p class="contact-note">
-            I aim to respond within 24 hours on weekdays.
-        </p>
+            <ul class="contact-info">
+                <li><strong>Location:</strong> Sydney’s East</li>
+                <li><strong>Email:</strong> <a
+                        href="mailto:admin@theignitepractice.com.au">admin@theignitepractice.com.au</a></li>
+            </ul>
+
+            <div class="contact-buttons">
+                <a href="tel:0467185112" class="button-primary contact-button">Call</a>
+                <a href="mailto:admin@theignitepractice.com.au" class="button-primary contact-button">Email</a>
+            </div>
+
+            <h3>Opening Hours</h3>
+            <p>Thursday & Friday<br>8.00am – 3.00pm</p>
+        </div>
 
     </div>
 </section>

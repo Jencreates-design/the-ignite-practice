@@ -519,6 +519,60 @@ nav a:hover {
 /* ================================
    SERVICES PAGE
 ================================ */
+
+/* GRID */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* CARD BASE */
+.service-card {
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.service-card:hover .card-inner,
+.service-card:focus-within .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* FRONT */
+.card-front {
+    background: #f7f7f7;
+    border: 1px solid #e5e5e5;
+}
+
+/* BACK */
+.card-back {
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    transform: rotateY(180deg);
+}
+
 .services-hero {
     padding-top: 160px;
     text-align: center;
@@ -549,39 +603,152 @@ nav a:hover {
     left: 0;
 }
 
+.service-detail.service-bg-white {
+    background: #ffffff;
+}
+
+.service-detail.service-bg-red {
+    background: #f8e7e7;
+    /* soft, faded red */
+}
+
 /* ================================
-   CONTACT PAGE
+   SERVICES HERO WITH PHOTO
 ================================ */
-.contact-hero {
-    padding-top: 160px;
+.hero-with-photo {
+    background-image: url('/assets/images/services-hero.jpeg');
+    /* your fern photo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 80vh;
+    /* adjust if you want taller */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: #ffffff;
 }
 
-.contact-subtitle {
-    font-size: 1.25rem;
-    margin-top: 10px;
+/* Overlay tint (choose one of the 3 options you liked) */
+.hero-with-photo .hero-overlay {
+    background: rgba(20, 32, 54, 0.55);
+    /* COOL NAVY — Option 1 */
+    /* background: rgba(196, 170, 150, 0.45); */
+    /* WARM BEIGE — Option 2 */
+    /* background: rgba(90, 90, 90, 0.40); */
+    /* NEUTRAL GREY — Option 3 */
+    width: 100%;
+    height: 100%;
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.contact-intro {
+/* Inner text styling */
+.hero-with-photo h1 {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.hero-with-photo .services-subtitle {
+    font-size: 1.3rem;
     max-width: 700px;
-    margin: 0 auto 20px;
+    margin: 0 auto;
 }
 
+/* ================================
+   CONTACT PAGE — FINAL CLEAN CSS
+================================ */
+
+/* Center the whole section */
+.contact-content .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* Tight hero spacing */
+.contact-hero .section-inner p {
+    margin-bottom: 2px;
+}
+
+/* Reduce space before the form starts */
+.contact-content.section {
+    padding-top: 0px;
+}
+
+/* Two-column layout — centered & balanced */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* perfectly balanced */
+    gap: 180px;
+    /* compact but elegant */
+    align-items: start;
+    justify-content: center;
+}
+
+/* Form area */
+.contact-form-area {
+    max-width: 550px;
+    /* compact and tidy */
+}
+
+/* Form labels */
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #3B3027;
+}
+
+/* Form fields — compact + elegant */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e6e0d9;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    /* reduces scrolling */
+    font-family: inherit;
+    color: #4A3F35;
+    background: #fff;
+}
+
+/* Call + Email buttons — compact + neat */
 .contact-buttons {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 30px 0;
+    gap: 16px;
+    margin: 16px 0;
+    justify-content: flex-start;
 }
 
 .contact-button {
-    min-width: 120px;
+    min-width: 130px;
+    padding: 10px 0;
+    border-radius: 30px;
+    text-align: center;
 }
 
-.contact-note {
-    margin-top: 20px;
-    font-size: 1rem;
-    text-align: center;
+/* Responsive layout */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .contact-form-area {
+        max-width: 100%;
+    }
+
+    .contact-buttons {
+        justify-content: center;
+    }
 }
 
 /* ================================
