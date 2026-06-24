@@ -616,7 +616,7 @@ nav a:hover {
    SERVICES HERO WITH PHOTO
 ================================ */
 .hero-with-photo {
-    background-image: url('/assets/images/services-hero.jpeg');
+    background-image: url('assets/images/services-hero.jpeg');
     /* your fern photo */
     background-size: cover;
     background-position: center;
