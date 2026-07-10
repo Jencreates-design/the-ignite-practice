@@ -2,18 +2,22 @@
    BRAND THEME — COLOURS & FONTS
 ================================ */
 :root {
-    --lavender: #B9A3D6;
-    --sage: #8A9A7B;
-    --charcoal: #2E3A32;
+    /* Exact brand colours from business card */
+    --ignite-green: #3E5A2A;
+    /* deep olive */
+    --ignite-blush: #E8DCD3;
+    /* soft neutral blush */
+    --ignite-blush-dark: #D2C3B8;
+    /* deeper blush for hover */
 
-    --cream: #F4EFE7;
-    --beige: #E3D8C8;
-    --sand: #D6C7B4;
+    /* Typography */
+    --heading-font: "Cormorant Garamond", serif;
+    --body-font: "Lora", serif;
 
-    --gold: #C9A86A;
-
-    --heading-font: "Playfair Display", serif;
-    --body-font: "Inter", sans-serif;
+    /* Text colours */
+    --text-dark: #4A4A4A;
+    /* soft charcoal */
+    --text-light: #ffffff;
 }
 
 /* ================================
@@ -26,20 +30,33 @@
 }
 
 body {
-    background: var(--cream);
-    color: var(--charcoal);
+    background: #FAF7F4;
+    /* soft warm neutral */
+    color: var(--text-dark);
     font-family: var(--body-font);
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
+/* ================================
+   GLOBAL TYPOGRAPHY
+================================ */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+    font-family: var(--heading-font);
+    color: var(--ignite-green);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
 p {
-    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.15rem;
+    line-height: 1.85;
 }
 
 /* ================================
@@ -50,46 +67,31 @@ p {
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Utility backgrounds */
-.cream {
-    background: var(--cream);
-}
-
-.beige {
-    background: var(--beige);
+.section {
+    padding: 70px 20px;
 }
 
 /* ================================
    HEADER / NAVIGATION
 ================================ */
 header {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent;
+    background: white;
     padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
     z-index: 20;
 }
 
 .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-.logo-desktop {
-    width: 300px;
-    height: auto;
-}
-
-.logo-mobile {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 nav ul {
@@ -99,97 +101,82 @@ nav ul {
 }
 
 nav a {
-    color: var(--charcoal);
-    background: rgba(255, 255, 255, 0.75);
-    padding: 8px 16px;
-    border-radius: 20px;
+    color: var(--ignite-green);
+    background: white;
+    padding: 8px 18px;
+    border-radius: 30px;
     text-decoration: none;
     font-weight: 500;
     transition: 0.25s ease;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 nav a:hover {
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--sage);
+    background: var(--ignite-blush);
+    color: var(--ignite-green);
+    border-color: var(--ignite-blush-dark);
 }
 
+/* Mobile nav */
 @media (max-width: 700px) {
-    body {
-        padding-top: 0px;
-        /* adjust until it looks perfect */
-    }
-
     header {
         padding: 10px 0;
-        /* smaller top/bottom padding */
-    }
-
-    .inner-page {
-        padding-top: 0px;
     }
 
     .nav-container {
         flex-direction: column;
-        align-items: center;
-        /* centers everything */
-        justify-content: center;
-        /* centers vertically */
         gap: 30px;
     }
 
     nav ul {
         flex-direction: column;
-        align-items: center;
-        /* centers the nav items */
         gap: 15px;
     }
+}
 
-    nav a {
-        width: auto;
-        display: inline-block;
-        text-align: center;
-    }
+/* ================================
+   LOGO RESPONSIVE BEHAVIOUR
+================================ */
 
+/* Default: desktop + tablet */
+.logo-desktop {
+    display: block;
+    width: 300px;
+    height: auto;
+}
+
+.logo-mobile {
+    display: none;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 700px) {
     .logo-desktop {
         display: none;
     }
 
     .logo-mobile {
         display: block;
-        height: 150px;
-        /* your new bigger size */
         width: auto;
+        height: 150px;
     }
 }
 
 /* ================================
-   GLOBAL SECTIONS
-================================ */
-.section {
-    padding: 60px 20px;
-}
-
-.hero+.section {
-    padding-top: 20px;
-}
-
-/* ================================
-   HERO SECTION
+   HERO SECTION (HOME)
 ================================ */
 .hero {
-    position: relative;
-    background-image: url('../images/hero-photo.jpeg');
+    background-image: url('../images/hero-photo.png');
     background-size: cover;
     background-position: center;
-    min-height: 90vh;
-    padding: 160px 20px 80px;
+    min-height: 70vh;
+    padding: 120px 20px 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .hero::before {
@@ -203,29 +190,24 @@ nav a:hover {
     position: relative;
     z-index: 2;
     max-width: 800px;
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(6px);
     padding: 40px 30px;
-    border-radius: 16px;
 }
 
 .hero h1 {
-    font-family: var(--heading-font);
     font-size: 3.2rem;
-    margin-bottom: 16px;
 }
 
 .hero p {
     font-size: 1.25rem;
-    margin-bottom: 25px;
+    color: var(--ignite-green);
 }
 
 /* ================================
    BUTTONS
 ================================ */
 .button-primary {
-    background: var(--sage);
-    color: white;
+    background: var(--ignite-blush);
+    color: var(--ignite-green);
     padding: 14px 32px;
     border-radius: 30px;
     text-decoration: none;
@@ -237,42 +219,16 @@ nav a:hover {
 }
 
 .button-primary:hover {
-    background: var(--gold);
+    background: var(--ignite-blush-dark);
 }
 
 /* ================================
    ABOUT PAGE
 ================================ */
-.about-hero {
-    padding-top: 160px;
-}
-
-.about-heading {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
 .about-two-column {
     display: flex;
     flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: center;
     gap: 60px;
-    text-align: left;
-}
-
-.about-two-column {
-    align-items: flex-start;
-}
-
-.about-text-column {
-    align-self: flex-start;
-}
-
-.about-photo-column {
-    flex: 1 1 40%;
-    display: flex;
-    justify-content: center;
 }
 
 .about-photo {
@@ -282,104 +238,209 @@ nav a:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.about-text-column {
-    flex: 1 1 60%;
-    text-align: left;
-    flex: 1 1 70%;
-}
-
-.about-text-column p:last-child {
-    margin-bottom: 8px;
-}
-
-.about-text-column h1 {
-    font-family: var(--heading-font);
-    font-size: 2.6rem;
-    margin-bottom: 10px;
-}
-
-.about-text-column p,
-.about-long-text p {
-    font-family: "Lora", serif;
-    /* soft, warm, elegant */
+.about-text-column p {
+    font-family: var(--body-font);
     font-size: 1.2rem;
-    /* same size everywhere */
     line-height: 1.9;
-    /* softer, more breathing room */
-    color: #4a4a4a;
-    /* gentle charcoal */
-    margin-bottom: 22px;
-    /* more space between paragraphs */
+    color: var(--text-dark);
 }
 
-.about-long-text {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.about-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-family: "Lora", serif;
-}
-
-.about-long-text {
-    width: 100%;
-    max-width: 1100px;
-    /* match section-inner */
-    margin: 20px auto 0;
-    text-align: left;
-}
-
-.inner-page section.section:first-of-type {
-    padding-top: 20px;
-    /* or 0 if you want it tight */
-}
-
-.about-hero.section {
-    padding-top: 20px;
-    /* or 0 if you want it tight */
-}
-
+/* Mobile */
 @media (max-width: 900px) {
     .about-two-column {
         flex-direction: column;
-        text-align: left;
-        /* keep text left-aligned */
         gap: 30px;
-        /* optional: tighter spacing on mobile */
     }
-
-    .about-text-column {
-        text-align: left;
-        /* override centering */
-    }
-
-    @media (max-width: 900px) {
-        .about-photo-column {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-    }
-}
-
-/* CTA bottom */
-.cta-bottom {
-    text-align: center;
-    margin-top: 30px;
 }
 
 /* ================================
-   MEADOWELL YELLOW SECTION (HOME)
+   FIX — ABOUT PAGE LAYOUT
+================================ */
+
+/* Restore spacing for the whole About page */
+.about-hero.section {
+    padding: 100px 20px 60px;
+}
+
+/* Fix heading spacing */
+.about-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Restore proper two-column layout */
+.about-two-column {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    text-align: left;
+}
+
+/* Fix photo column width */
+.about-photo-column {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Fix photo sizing */
+.about-photo {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Fix text column width */
+.about-text-column {
+    flex: 1 1 60%;
+    text-align: left;
+}
+
+/* Restore paragraph spacing */
+.about-text-column p,
+.about-long-text p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-bottom: 22px;
+}
+
+/* Restore long-text block spacing */
+.about-long-text {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+/* CTA spacing */
+.cta-bottom {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Mobile layout fix */
+@media (max-width: 900px) {
+    .about-two-column {
+        flex-direction: column;
+        gap: 40px;
+        text-align: left;
+    }
+
+    .about-photo-column {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-text-column {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* ================================
+   HOME — GREEN SECTION
 ================================ */
 .section-yellow {
-    background: #E3C46A;
-    color: #7A2E2E;
+    background: var(--ignite-green);
+    color: white;
     padding: 120px 20px;
 }
 
+.section-yellow p {
+    font-size: 1.15rem;
+    line-height: 1.85;
+}
+
+/* ================================
+   ISSUES SECTION
+================================ */
+.issues.section {
+    background: var(--ignite-blush);
+    color: var(--ignite-green);
+    padding: 100px 20px;
+}
+
+.issues-list {
+    columns: 2;
+    column-gap: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.issues-list li {
+    padding-left: 28px;
+    position: relative;
+}
+
+.issues-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--ignite-green);
+}
+
+/* ================================
+   FIX — HOME PAGE LAYOUT
+================================ */
+
+/* Restore hero spacing */
+.hero {
+    padding: 140px 20px 80px;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+
+/* ================================
+   SAGE SECTION (renamed from section-yellow)
+================================ */
+.section-sage {
+    position: relative;
+    padding: 120px 20px;
+
+    /* Original acknowledgement green + lighter sage gradient */
+    background: linear-gradient(to right,
+            #4f6b63 0%,
+            /* SAME green as acknowledgement */
+            #6b857d 100%
+            /* lighter sage */
+        );
+
+    /* Light text to match the softened background */
+    color: #f7f7f7;
+}
+
+/* White veil overlay to mellow the whole section */
+.section-sage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.22);
+    /* soft white veil */
+    pointer-events: none;
+}
+
+/* Ensure content sits above the overlay */
+.section-sage .section-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* ================================
+   TWO-COLUMN LAYOUT
+================================ */
 .two-column .section-inner {
     display: flex;
     align-items: center;
@@ -388,24 +449,21 @@ nav a:hover {
     max-width: 1100px;
 }
 
+/* Text column */
 .text-column {
     flex: 1 1 45%;
     text-align: left;
 }
 
-.section-yellow p {
-    font-size: 1.15rem;
-    line-height: 1.85;
-    margin-bottom: 30px;
-}
-
+/* Divider */
 .divider {
     width: 2px;
-    background: rgba(122, 46, 46, 0.35);
+    background: rgba(255, 255, 255, 0.35);
     height: 300px;
     border-radius: 2px;
 }
 
+/* Image column */
 .image-column {
     flex: 1 1 45%;
     display: flex;
@@ -420,14 +478,43 @@ nav a:hover {
     object-fit: cover;
 }
 
-.section-yellow .button-primary {
-    background: #7A2E2E;
+/* Restore spacing for issues section */
+.issues.section {
+    padding: 100px 20px;
 }
 
-.section-yellow .button-primary:hover {
-    background: #9C3A3A;
+.issues.section h2 {
+    margin-bottom: 50px;
 }
 
+/* Restore spacing for empathy section */
+.empathy.section {
+    padding: 100px 20px;
+}
+
+.empathy-list {
+    max-width: 750px;
+    margin: 20px auto 30px;
+}
+
+/* Restore spacing for beige section */
+.how-help.section {
+    padding: 100px 20px;
+}
+
+.how-help.section p {
+    margin-bottom: 22px;
+}
+
+/* Fix bottom CTA */
+.home .button-primary,
+a.button-primary:last-of-type {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+}
+
+/* Mobile layout fixes */
 @media (max-width: 900px) {
     .two-column .section-inner {
         flex-direction: column;
@@ -438,327 +525,411 @@ nav a:hover {
     .divider {
         display: none;
     }
+
+    .text-column {
+        text-align: left;
+    }
 }
 
-/* ================================
-   ISSUES SECTION (HOME)
-================================ */
-.issues.section {
-    background: #E8E8E8;
-    padding: 100px 20px;
+.pearl-section {
+    background: white;
+    padding: 80px 20px;
+    border-top: 4px solid #8FA59B;
+    /* sage green */
+    border-bottom: 4px solid #8FA59B;
 }
 
-.issues.section h2 {
-    font-family: var(--heading-font);
-    font-size: 2rem;
-    margin-bottom: 50px;
+/* Full-width section */
+.pearl-section {
+    width: 100%;
+    background: white;
+    /* or off-white below */
+    padding: 100px 0;
+    border-top: 4px solid #8FA59B;
+    /* optional sage border */
+    border-bottom: 4px solid #8FA59B;
+    /* optional sage border */
 }
 
-.issues-list {
-    columns: 2;
-    column-gap: 60px;
-    max-width: 900px;
+/* Centered inner container */
+.pearl-inner {
+    max-width: 1200px;
+    /* wide screen */
     margin: 0 auto;
-    list-style: none;
+    text-align: center;
+    padding: 0 20px;
 }
 
-.issues-list li {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    padding-left: 28px;
-    position: relative;
+/* Smaller pearl image */
+.pearl-image-small {
+    width: 260px;
+    /* adjust size here */
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.issues-list li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--gold);
+/* Heading */
+.pearl-section h2 {
+    font-family: var(--heading-font);
+    color: var(--ignite-green);
+    margin-bottom: 20px;
 }
 
-@media (max-width: 800px) {
-    .issues-list {
-        columns: 1;
-        text-align: center;
-    }
-
-    .issues-list li::before {
-        display: none;
-    }
-}
-
-/* ================================
-   EMPATHY SECTION (HOME)
-================================ */
-.empathy-list {
-    max-width: 750px;
-    margin: 10px auto 20px;
-    list-style: none;
-    text-align: left;
-}
-
-.empathy-list li {
-    margin-bottom: 12px;
-    padding-left: 18px;
-    position: relative;
-}
-
-.empathy-list li::before {
-    content: "•";
-    color: var(--sage);
-    position: absolute;
-    left: 0;
-}
-
-.empathy-bottom {
-    margin-top: 20px;
+/* Text */
+.pearl-section p {
+    font-family: "Lora", serif;
     font-size: 1.2rem;
+    line-height: 1.9;
+    color: #4a4a4a;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* ================================
-   SERVICES PAGE
+   SERVICES CARDS — BLUSH + LIGHT GREEN
 ================================ */
 
-/* GRID */
+/* Tighten spacing between hero and cards on Services page */
+.services-hero.section {
+    padding-bottom: 0px;
+    /* reduce from 100–120px */
+}
+
+.services-cards.section {
+    padding-top: 0px;
+    /* reduce from 80px */
+}
+
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
+    margin-top: 50px;
 }
 
-/* CARD BASE */
+/* Base card styling */
 .service-card {
-    perspective: 1000px;
-}
-
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 220px;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.service-card:hover .card-inner,
-.service-card:focus-within .card-inner {
-    transform: rotateY(180deg);
-}
-
-/* FRONT & BACK */
-.card-front,
-.card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 14px;
+    padding: 32px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
-/* FRONT */
-.card-front {
-    background: #f7f7f7;
-    border: 1px solid #e5e5e5;
+/* Alternating colours — MATCHING LONG SECTIONS */
+.service-card:nth-child(odd) {
+    background: #F8E7E7;
+    /* SAME blush as long descriptions */
+    color: var(--ignite-green-dark);
 }
 
-/* BACK */
-.card-back {
-    background: #ffffff;
-    border: 1px solid #dcdcdc;
-    transform: rotateY(180deg);
-}
-
-.services-hero {
-    padding-top: 160px;
-    text-align: center;
-}
-
-.services-subtitle {
-    font-size: 1.25rem;
-    margin-top: 10px;
-}
-
-.services-bullet-list {
-    max-width: 700px;
-    margin: 0 auto 30px;
-    list-style: none;
-    text-align: left;
-}
-
-.services-bullet-list li {
-    margin-bottom: 12px;
-    padding-left: 18px;
-    position: relative;
-}
-
-.services-bullet-list li::before {
-    content: "•";
-    color: var(--sage);
-    position: absolute;
-    left: 0;
-}
-
-.service-detail.service-bg-white {
-    background: #ffffff;
-}
-
-.service-detail.service-bg-red {
-    background: #f8e7e7;
-    /* soft, faded red */
-}
-
-/* ================================
-   SERVICES HERO WITH PHOTO
-================================ */
-.hero-with-photo {
-    background-image: url('assets/images/services-hero.jpeg');
-    /* your fern photo */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 80vh;
-    /* adjust if you want taller */
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.service-card:nth-child(even) {
+    background: #9bb3ac;
+    /* lighter sage green */
     color: #ffffff;
 }
 
-/* Overlay tint (choose one of the 3 options you liked) */
-.hero-with-photo .hero-overlay {
-    background: rgba(20, 32, 54, 0.55);
-    /* COOL NAVY — Option 1 */
-    /* background: rgba(196, 170, 150, 0.45); */
-    /* WARM BEIGE — Option 2 */
-    /* background: rgba(90, 90, 90, 0.40); */
-    /* NEUTRAL GREY — Option 3 */
-    width: 100%;
-    height: 100%;
-    padding: 100px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Hover effect */
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* Inner text styling */
-.hero-with-photo h1 {
-    font-size: 3rem;
-    margin-bottom: 12px;
+/* Icon styling */
+.service-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    opacity: 0.9;
 }
 
-.hero-with-photo .services-subtitle {
-    font-size: 1.3rem;
-    max-width: 700px;
-    margin: 0 auto;
+/* Headings — bigger + friendlier */
+.service-card h3 {
+    margin-top: 10px;
+    margin-bottom: 14px;
+    font-size: 1.35rem;
+    /* bigger */
+    font-weight: 600;
+    /* less elegant */
+    font-family: var(--body-font);
+    /* friendly, readable */
+}
+
+/* Paragraph — bigger + softer */
+.service-card p {
+    margin-top: 12px;
+    font-size: 1.1rem;
+    /* bigger */
+    line-height: 1.6;
+    font-family: var(--body-font);
+}
+
+/* Alternating long-section backgrounds — MATCH CARDS */
+.service-bg-blush {
+    background: #F8E7E7;
+    /* same blush as cards */
+}
+
+.service-bg-sage {
+    background: #9bb3ac;
+    /* same soft sage as cards */
 }
 
 /* ================================
-   CONTACT PAGE — FINAL CLEAN CSS
+   CONTACT PAGE
 ================================ */
 
-/* Center the whole section */
-.contact-content .section-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 90%;
-}
-
-/* Tight hero spacing */
-.contact-hero .section-inner p {
-    margin-bottom: 2px;
-}
-
-/* Reduce space before the form starts */
-.contact-content.section {
-    padding-top: 0px;
-}
-
-/* Two-column layout — centered & balanced */
+/* Two-column layout */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* perfectly balanced */
-    gap: 180px;
-    /* compact but elegant */
-    align-items: start;
-    justify-content: center;
+    gap: 60px;
 }
 
-/* Form area */
-.contact-form-area {
-    max-width: 550px;
-    /* compact and tidy */
-}
-
-/* Form labels */
-.contact-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #3B3027;
-}
-
-/* Form fields — compact + elegant */
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #e6e0d9;
-    border-radius: 8px;
-    font-size: 1rem;
-    margin-bottom: 4px;
-    /* reduces scrolling */
-    font-family: inherit;
-    color: #4A3F35;
-    background: #fff;
-}
-
-/* Call + Email buttons — compact + neat */
-.contact-buttons {
-    display: flex;
-    gap: 16px;
-    margin: 16px 0;
-    justify-content: flex-start;
-}
-
-.contact-button {
-    min-width: 130px;
-    padding: 10px 0;
-    border-radius: 30px;
-    text-align: center;
-}
-
-/* Responsive layout */
+/* Mobile */
 @media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 28px;
     }
+}
 
-    .contact-form-area {
-        max-width: 100%;
-    }
+/* Hero spacing */
+.contact-hero.section {
+    padding: 20px 20px 10px;
+}
 
-    .contact-buttons {
-        justify-content: center;
-    }
+.contact-hero .section-inner h1 {
+    margin-bottom: 10px;
+}
+
+/* Main section spacing */
+.contact-content.section {
+    padding: 20px 20px 60px;
+}
+
+/* Headings */
+.contact-form-area h2,
+.contact-details-area h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* Form labels */
+.contact-form label {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+}
+
+/* Form fields */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1.05rem;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border: 1px solid #e6e0d9;
+    border-radius: 8px;
+    background: white;
+}
+
+/* Contact details list */
+.contact-info {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.contact-info li {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1.05rem;
+    border: 1px solid #e6e0d9;
+    border-radius: 8px;
+    background: white;
+    color: var(--text-dark);
+}
+
+/* Placeholder styling */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #9a948c;
+    /* soft neutral tone */
+    font-style: italic;
+}
+
+/* Focus state for a clean highlight */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--ignite-blush-dark);
+    box-shadow: 0 0 4px rgba(210, 195, 184, 0.4);
+}
+
+
+
+/* ================================
+   BUTTONS — UNIFIED STYLE
+================================ */
+
+/* Center the Email button */
+.contact-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 25px 0 40px;
+}
+
+/* Make Send + Email identical */
+.contact-form button.button-primary,
+.contact-buttons .button-primary {
+    padding: 14px 32px;
+    /* match global */
+    margin-top: 0 !important;
+    /* override global margin */
+    text-align: center;
+}
+
+/* Center the Email button */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.contact-buttons .button-primary {
+    margin: 0 auto;
+}
+
+/* ================================
+   CONTACT PAGE — FINAL ALIGNMENT FIX
+================================ */
+
+/* Ensure the right column behaves normally */
+.contact-details-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centers everything inside */
+    text-align: center;
+    /* centers text and button */
+}
+
+/* Center the Email button perfectly */
+.contact-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 25px 0 40px;
+}
+
+/* Match Send + Email button styles */
+.contact-form button.button-primary,
+.contact-buttons .button-primary {
+    padding: 14px 32px;
+    margin-top: 0 !important;
+    text-align: center;
+}
+
+/* ================================
+   CONTACT PAGE — CENTER BUTTONS
+================================ */
+
+/* Center both Call and Email buttons */
+.contact-buttons {
+    text-align: center;
+    /* centers inline elements like <a> */
+    margin: 25px 0 40px;
+}
+
+/* Make both buttons identical */
+.contact-buttons .button-primary,
+.contact-form button.button-primary {
+    background: var(--ignite-blush);
+    color: var(--ignite-green);
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.25s ease;
+    border: 1px solid var(--ignite-blush-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 0;
+    /* override global margin */
+}
+
+/* Hover effect */
+.contact-buttons .button-primary:hover,
+.contact-form button.button-primary:hover {
+    background: var(--ignite-blush-dark);
+    color: var(--ignite-green);
+}
+
+/* Make the right column fill the full grid width */
+.contact-details-area {
+    width: 100% !important;
+    display: block !important;
+}
+
+/* Center the Email button properly */
+.contact-buttons {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0px 0 40px;
+}
+
+/* Ensure the button itself doesn't push sideways */
+.contact-buttons .button-primary {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+}
+
+.contact-info a {
+    color: var(--ignite-green);
+    /* brand colour */
+    text-decoration: underline;
+    /* keeps accessibility */
+    font-weight: 500;
+    /* subtle emphasis */
+}
+
+.contact-info a:hover {
+    color: var(--ignite-blush-dark);
+    /* gentle hover */
 }
 
 /* ================================
    FOOTER
 ================================ */
 footer {
-    background: var(--charcoal);
-    color: var(--cream);
+    background: var(--ignite-blush);
+    color: var(--ignite-green);
     text-align: center;
     padding: 25px 0;
     margin-top: 40px;
     font-size: 0.9rem;
+}
+
+.site-footer .footer-acknowledgement {
+    background: #4f6b63;
+    /* darker green from your palette */
+    color: #ffffff;
+    /* white text for contrast */
+    font-size: 1.15rem;
+    /* calmer size */
+    line-height: 1.6;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
 }
