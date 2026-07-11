@@ -5,14 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="icon" type="image/jpeg" href="assets/logos/logo-ignite-favicon.jpeg">
-
-
 </head>
 
-<body>
+<body class="{{ page.class }}">
 
     {% include header.html %}
 
@@ -21,6 +17,8 @@
     </main>
 
     {% include footer.html %}
+
+    <script src="assets/js/script.js"></script>
 
 </body>
 
