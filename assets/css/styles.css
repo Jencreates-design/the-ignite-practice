@@ -431,40 +431,84 @@ nav a:hover {
 }
 
 /* ================================
-   TWO-COLUMN LAYOUT
+   TWO-COLUMN — DESKTOP
 ================================ */
-.two-column .section-inner {
+
+.section-sage.two-column .section-inner {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 60px;
     max-width: 1100px;
+    margin: 0 auto;
 }
 
-.text-column {
-    flex: 1 1 45%;
-    text-align: left;
+.section-sage.two-column .text-column {
+    flex: 0 0 60%;
 }
 
-.divider {
+.section-sage.two-column .image-column {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-sage.two-column .image-column img {
+    max-height: 520px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.section-sage.two-column .divider {
     width: 2px;
     background: rgba(255, 255, 255, 0.35);
-    height: 300px;
+    height: 85%;
+    align-self: center;
     border-radius: 2px;
 }
 
-.image-column {
-    flex: 1 1 45%;
-    display: flex;
-    justify-content: center;
-}
+/* ================================
+   TWO-COLUMN — MOBILE (IMAGE ON TOP)
+================================ */
 
-.image-column img {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    object-fit: cover;
+@media (max-width: 900px) {
+
+    .section-sage.two-column .section-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    /* Hide divider on mobile */
+    .section-sage.two-column .divider {
+        display: none;
+    }
+
+    /* Move the IMAGE COLUMN (3rd child) to the top */
+    .section-sage.two-column .section-inner>.image-column {
+        order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Make the image full-width but controlled */
+    .section-sage.two-column .image-column img {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+    }
+
+    /* Text column full width */
+    .section-sage.two-column .text-column {
+        width: 100%;
+        text-align: left;
+    }
 }
 
 /* ================================
@@ -527,6 +571,18 @@ nav a:hover {
     color: var(--ignite-green);
 }
 
+.modalities-list {
+    margin: 20px 0 30px;
+    padding-left: 22px;
+    list-style: disc;
+}
+
+.modalities-list li {
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+    line-height: 1.75;
+}
+
 /* ================================
    BEIGE SECTION
 ================================ */
@@ -564,70 +620,102 @@ a.button-primary:last-of-type {
 }
 
 /* ================================
-   PEARL SECTION — IMAGE MATCHES TEXT HEIGHT
+   PEARL SECTION — DESKTOP
 ================================ */
 
-.pearl-section {
-    width: 100%;
-    background: white;
-    padding: 100px 0;
-    border-top: 4px solid #8FA59B;
-    border-bottom: 4px solid #8FA59B;
-}
-
-.pearl-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Two-column layout */
-.pearl-row {
+.pearl-section .pearl-inner {
     display: flex;
-    align-items: stretch;
-    /* image grows to match text height */
-    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 60px;
 }
 
 /* Image column */
-.pearl-image-col {
+.pearl-section .pearl-image-col {
     flex: 0 0 40%;
-    /* image takes 40% of the width */
     display: flex;
-    align-items: stretch;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-/* Pearl image grows with the column */
-.pearl-image-small {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* fills the column beautifully */
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Pearl image */
+.pearl-section .pearl-image-col img {
+    max-width: 420px;
+    height: auto;
 }
 
 /* Text column */
-.pearl-text-col {
-    flex: 1;
+.pearl-section .pearl-text-col {
+    flex: 0 0 60%;
     text-align: left;
 }
 
-/* Heading */
-.pearl-section h2 {
-    font-family: var(--heading-font);
-    color: var(--ignite-green);
-    margin-bottom: 20px;
+
+/* ================================
+   PEARL SECTION — MOBILE (IMAGE ON TOP)
+================================ */
+@media (max-width: 900px) {
+
+    .pearl-section .pearl-inner {
+        flex-direction: column;
+        /* stack vertically */
+        gap: 30px;
+        text-align: center;
+    }
+
+    /* Move image ABOVE text */
+    .pearl-section .pearl-image-col {
+        order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Make pearl image full-width but controlled */
+    .pearl-section .pearl-image-col img {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+    }
+
+    /* Text full width */
+    .pearl-section .pearl-text-col {
+        width: 100%;
+        text-align: left;
+    }
 }
 
-/* Paragraphs */
-.pearl-section p {
-    font-family: "Lora", serif;
-    font-size: 1.2rem;
-    line-height: 1.9;
-    color: #4a4a4a;
-    margin-bottom: 20px;
-    max-width: 800px;
+/* ================================
+   SECTION SEPARATORS — FIXED
+================================ */
+
+/* Add spacing so sections breathe */
+.section-sage,
+.pearl-section,
+.how-help {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+/* Soft divider line ABOVE each section */
+.section-sage::before,
+.pearl-section::before,
+.how-help::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+/* Remove line above the very first section if needed */
+.section-sage:first-of-type::before {
+    display: none;
 }
 
 /* ================================
