@@ -329,12 +329,22 @@ header.scrolled {
         display: none;
     }
 
+    /* Show Book Now button on mobile */
     .nav-book-button {
-        display: none;
+        display: inline-block;
+        margin-left: auto;
     }
 
     .hamburger {
         display: flex;
+    }
+
+    /* Align hamburger + book button */
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
     }
 }
 
